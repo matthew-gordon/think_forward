@@ -6,10 +6,25 @@ module.exports = {
   devtool: debug ? 'inline-sourcemap' : false,
   entry: path.join(__dirname, '/src/js/index.js'),
   module: {
-    loaders: [{
-      test:/\.js?$/,
+    rules: [{
+      test: /\.js?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
+      use: {
+        loader: 'babel-loader'
+      },
+    }, {
+      test: /\.scss$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader', options: {
+          sourceMap: true
+        }
+      }, {
+        loader: 'sass-loader', options: {
+          sourceMap: true
+        }
+      }]
     }]
   },
   output: {
