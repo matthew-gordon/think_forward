@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import agent from '../../agent';
 
-import Banner from './Banner.js';
-import MainView from './MainView.js';
+import Banner from './Banner';
+import MainView from './MainView';
+
+const Promise = global.Promise;
 
 class Home extends Component {
+  componentWillMount() {
+    this.props.onLoad(agent.Articles.all());
+  }
+
   render() {
     return (
       <div className="home-page">
@@ -29,10 +36,13 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    appName: state.article.appName
-  }
-}
+const mapStateToProps = state => ({
+  appName: state.article.appName
+})
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = dispatch => ({
+  onLoad: (payload) =>
+    dispatch({ type: 'HOME_PAGE_LOADED', payload }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
