@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
+class Header extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <div>
+        <div className="container">
+
           <a className="navbar-brand">
             {this.props.appName.toLowerCase()}
           </a>

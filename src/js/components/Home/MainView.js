@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ArticleList from './ArticleList';
+import ArticleList from '../ArticleList';
 
 const MainView = props => {
   return (
