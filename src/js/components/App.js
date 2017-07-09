@@ -12,6 +12,7 @@ import Header from './Navbar/Header';
 import Home from './Home/';
 import Signin from './Auth/Signin';
 import Signup from './Auth/Signup';
+import Signout from './Auth/Signout';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/Signin" component={Signin} />
           <Route path="/Signup" component={Signup} />
+          <Route path="/Signout" component={Signout} />
         </Switch>
       </div>
     );

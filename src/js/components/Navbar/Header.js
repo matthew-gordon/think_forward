@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-class Header extends React.Component {
+class Header extends Component {
   renderLinks() {
-    return [
-      <li className="nav-item" key={1}>
-        <Link className="nav-link" to="/Signin">Sign In</Link>
-      </li>,
-      <li className="nav-item" key={2}>
-        <Link className="nav-link" to="/Signup">Sign up</Link>
-      </li>
-    ]
+    if (this.props.authenticated) {
+      return [
+        <li className="nav-item" key={1}>
+          <Link className="nav-link" to="/dashboard">Dashboard</Link>
+        </li>,
+        <li className="nav-item" key={2}>
+          <Link className="nav-link" to="/Signout">Sign Out</Link>
+        </li>
+      ]
+    } else {
+      return [
+        <li className="nav-item" key={1}>
+          <Link className="nav-link" to="/Signin">Sign In</Link>
+        </li>,
+        <li className="nav-item" key={2}>
+          <Link className="nav-link" to="/Signup">Sign up</Link>
+        </li>
+      ]
+    }
   }
 
   render() {
@@ -30,4 +42,10 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(Header);

@@ -21,7 +21,19 @@ const renderField = ({
 
 class SigninForm extends Component {
   submit(values) {
-    console.log(values);
+    this.props.signinUser(values, () => {
+      this.props.history.push('/');
+    });
+  }
+
+  renderAlert() {
+    if (this.props.errorMessage) {
+      return (
+        <div className="alert alert-danger">
+          <strong>Oops!</strong> {this.props.errorMessage}
+        </div>
+      );
+    }
   }
 
   render() {
@@ -42,6 +54,7 @@ class SigninForm extends Component {
             type="password"
             placeholder="Password" />
 
+          {this.renderAlert()}
           <button
             className="btn btn-lg btn-primary pull-xs-right"
             action="submit">
@@ -67,6 +80,9 @@ function validate(values) {
   return errors
 }
 
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.error };
+}
 
 SigninForm = reduxForm({
   form: 'signin',
@@ -74,4 +90,4 @@ SigninForm = reduxForm({
 })(SigninForm)
 
 import { withRouter } from 'react-router-dom';
-export default withRouter(connect(null, actions)(SigninForm));
+export default withRouter(connect(mapStateToProps, actions)(SigninForm));
