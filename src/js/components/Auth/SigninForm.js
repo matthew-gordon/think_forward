@@ -14,6 +14,7 @@ const renderField = ({
       className="form-control form-control-lg"
       {...input} type={type}
       placeholder={placeholder} />
+
     { touched && error && <span className="text-danger">{error}</span> }
   </fieldset>
 );
@@ -51,8 +52,23 @@ class SigninForm extends Component {
   }
 }
 
+function validate(values) {
+  let errors = {}
+
+  if (!values.username) {
+    errors.username = 'Please enter a username';
+  }
+
+  if (!values.password) {
+    errors.password = 'Please enter a password';
+  }
+
+  return errors
+}
+
 SigninForm = reduxForm({
-  form: 'signin'
+  form: 'signin',
+  validate
 })(SigninForm)
 
 import { withRouter } from 'react-router-dom';

@@ -11,14 +11,17 @@ const renderField = ({
 }) => (
   <fieldset className="form-group">
     <input
-      className="form-control form-control-lg"
+      className="form-control"
       {...input} type={type}
-      placeholder={placeholder} />
+      placeholder={placeholder}/>
+
     { touched && error && <span className="text-danger">{error}</span> }
   </fieldset>
 );
 
+
 class SignupForm extends Component {
+
   submit(values) {
     console.log(values);
   }
@@ -45,17 +48,40 @@ class SignupForm extends Component {
           placeholder="Confrim Password" />
 
         <button
-          className="btn btn-lg btn-primary pull-xs-right"
-          action="submit">
-          Sign In
+          action="submit"
+          className="btn btn-lg btn-primary pull-xs-right">
+          Sign Up
         </button>
       </form>
     );
   }
 }
 
+function validate(values) {
+  let errors = {}
+
+  if (!values.username) {
+    errors.username = 'Please enter a username';
+  }
+
+  if (!values.password) {
+    errors.password = 'Please enter a password';
+  }
+
+  if (!values.password_confirmation) {
+    errors.password_confirmation = 'Please enter your password confirmation'
+  }
+
+  if (values.password !== values.password_confirmation) {
+    errors.password = 'Password and password confirmation don\'t match!'
+  }
+
+  return errors
+}
+
 SignupForm = reduxForm({
-  form: 'signup'
+  form: 'signup',
+  validate
 })(SignupForm)
 
 import { withRouter } from 'react-router-dom';
