@@ -3,6 +3,21 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+const renderField = ({
+  input,
+  placeholder,
+  type,
+  meta: { touched, error, warning }
+}) => (
+  <fieldset className="form-group">
+    <input
+      className="form-control form-control-lg"
+      {...input} type={type}
+      placeholder={placeholder} />
+    { touched && error && <span className="text-danger">{error}</span> }
+  </fieldset>
+);
+
 class SigninForm extends Component {
   submit(values) {
     console.log(values);
@@ -14,31 +29,22 @@ class SigninForm extends Component {
     return (
       <form onSubmit={handleSubmit(this.submit.bind(this))}>
         <fieldset>
-
-          <fieldset className="form-group">
-            <Field
-              name="username"
-              component="input"
-              className="form-control from-control-lg"
-              type="text"
-              placeholder="Username" />
-          </fieldset>
-
-          <fieldset className="form-group">
-            <Field
-              name="password"
-              component="input"
-              className="form-control from-control-lg"
-              type="password"
-              placeholder="Password" />
-          </fieldset>
+          <Field
+            name="username"
+            component={renderField}
+            type="text"
+            placeholder="Username" />
+          <Field
+            name="password"
+            component={renderField}
+            type="password"
+            placeholder="Password" />
 
           <button
             className="btn btn-lg btn-primary pull-xs-right"
             action="submit">
             Sign In
           </button>
-
         </fieldset>
       </form>
     );
