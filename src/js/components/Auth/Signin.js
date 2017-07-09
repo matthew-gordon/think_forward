@@ -19,7 +19,7 @@ class Signin extends Component {
                 </Link>
               </p>
 
-              <SigninForm />
+              <SigninForm onSubmit={this.submit} />
             </div>
 
           </div>

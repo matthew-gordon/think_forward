@@ -11,7 +11,7 @@ const renderField = ({
 }) => (
   <fieldset className="form-group">
     <input
-      className="form-control form-control-lg"
+      className="form-control"
       {...input} type={type}
       placeholder={placeholder} />
 
@@ -25,6 +25,7 @@ class SigninForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     const { handleSubmit } = this.props;
 
     return (
@@ -66,10 +67,11 @@ function validate(values) {
   return errors
 }
 
+
 SigninForm = reduxForm({
   form: 'signin',
   validate
 })(SigninForm)
 
 import { withRouter } from 'react-router-dom';
-export default withRouter(connect()(SigninForm));
+export default withRouter(connect(null, actions)(SigninForm));

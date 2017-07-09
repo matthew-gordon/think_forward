@@ -19,7 +19,7 @@ class Signup extends Component {
                 </Link>
               </p>
 
-              <SignupForm />
+              <SignupForm onSubmit={this.submit} />
             </div>
 
           </div>
