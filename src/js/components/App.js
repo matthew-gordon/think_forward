@@ -8,9 +8,10 @@ import {
 
 import './app.component.scss';
 
-import Header from './Header';
+import Header from './Navbar/Header';
 import Home from './Home/';
-import Signin from './Signin';
+import Signin from './Auth/Signin';
+import Signup from './Auth/Signup';
 
 class App extends Component {
   render() {
@@ -19,7 +20,8 @@ class App extends Component {
         <Header appName={this.props.appName} />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Signin} />
+          <Route path="/Signin" component={Signin} />
+          <Route path="/Signup" component={Signup} />
         </Switch>
       </div>
     );

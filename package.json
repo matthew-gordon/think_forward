@@ -24,6 +24,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.1",
+    "redux-form": "^6.8.0",
     "superagent": "^3.5.2",
     "superagent-promise": "^1.1.0"
   }

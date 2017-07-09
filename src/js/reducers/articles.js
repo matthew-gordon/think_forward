@@ -1,6 +1,5 @@
 const defaultState = {
-  appName: 'Think Forward',
-  articles: null
+  appName: 'Think Forward'
 }
 
 export default function(state = defaultState, action) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ArticleList from '../ArticleList';
+import ArticleList from '../Article/ArticleList';
 
 const MainView = props => {
   return (
@@ -27,7 +27,7 @@ const MainView = props => {
   );
 };
 
-function mapStateToProps(state) {
+const  mapStateToProps = (state) => {
   return {
     articles: state.article.articles
   }

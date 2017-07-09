@@ -3,7 +3,6 @@ import React from 'react';
 import ArticlePreview from './ArticlePreview';
 
 const ArticleList = props => {
-  console.log(props);
   if (!props.articles) {
     return (
       <div className="article-preview">Loading...</div>

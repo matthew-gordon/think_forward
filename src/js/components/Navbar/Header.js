@@ -5,10 +5,10 @@ class Header extends React.Component {
   renderLinks() {
     return [
       <li className="nav-item" key={1}>
-        <Link className="nav-link" to="/login">Sign In</Link>
+        <Link className="nav-link" to="/Signin">Sign In</Link>
       </li>,
       <li className="nav-item" key={2}>
-        <Link className="nav-link" to="/login">Sign up</Link>
+        <Link className="nav-link" to="/Signup">Sign up</Link>
       </li>
     ]
   }
