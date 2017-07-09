@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import logger from 'redux-logger';
 import reduxThunk from 'redux-thunk';
 import { promiseMiddleware } from './middleware';
+import { AUTH_USER } from './actions/types';
 
 import reducers from './reducers';
 
@@ -16,9 +17,16 @@ const createStoreWithMiddleware = applyMiddleware(
   reduxThunk,
   promiseMiddleware
 )(createStore);
+const store = createStoreWithMiddleware(reducers);
+
+const token = localStorage.getItem('token');
+
+if (token) {
+  store.dispatch({ type: AUTH_USER });
+}
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router>
       <App />
     </Router>
