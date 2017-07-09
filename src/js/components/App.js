@@ -22,10 +22,10 @@ class App extends Component {
         <Header appName={this.props.appName} />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/Signin" component={Signin} />
-          <Route path="/Signup" component={Signup} />
-          <Route path="/Signout" component={Signout} />
-          <Route path="/Dashboard" component={Dashboard} />
+          <Route path="/signin" component={Signin} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/signout" component={Signout} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
     );

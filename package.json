@@ -2,6 +2,9 @@
   "name": "conduit",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev" : "webpack-dev-server --inline --hot"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.1",
