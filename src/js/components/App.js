@@ -30,7 +30,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     appName: state.article.appName
   }

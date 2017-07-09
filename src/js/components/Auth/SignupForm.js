@@ -91,7 +91,7 @@ function validate(values) {
   return errors
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return { errorMessage: state.auth.error };
 }
 
