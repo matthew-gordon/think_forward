@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   renderLinks() {
+    console.log(this.props);
     if (this.props.authenticated) {
       return [
         <li className="nav-item" key={1}>

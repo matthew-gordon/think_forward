@@ -8,6 +8,7 @@ import {
 
 import './app.component.scss';
 
+import Dashboard from './Dashboard/Dashboard';
 import Header from './Navbar/Header';
 import Home from './Home/';
 import Signin from './Auth/Signin';
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/Signin" component={Signin} />
           <Route path="/Signup" component={Signup} />
           <Route path="/Signout" component={Signout} />
+          <Route path="/Dashboard" component={Dashboard} />
         </Switch>
       </div>
     );
@@ -31,8 +33,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+
   return {
-    appName: state.article.appName
+    appName: state.common.appName
   }
 }
 

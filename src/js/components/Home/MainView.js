@@ -29,7 +29,7 @@ const MainView = props => {
 
 const  mapStateToProps = (state) => {
   return {
-    articles: state.article.articles
+    articles: state.home.articles
   }
 }
 

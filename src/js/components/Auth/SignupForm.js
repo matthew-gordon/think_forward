@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import * as auth from '../../actions/auth';
 
 const renderField = ({
   input,
@@ -24,7 +24,7 @@ class SignupForm extends Component {
 
   submit(values) {
     this.props.signupUser(values, () => {
-      this.props.history.push('/');
+      this.props.history.push('/dashboard');
     });
   }
 
@@ -101,4 +101,4 @@ SignupForm = reduxForm({
 })(SignupForm)
 
 import { withRouter } from 'react-router-dom';
-export default withRouter(connect(mapStateToProps, actions)(SignupForm));
+export default withRouter(connect(mapStateToProps, auth)(SignupForm));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import agent from '../../agent';
+import * as actions from '../../actions';
 
 import Banner from './Banner';
 import MainView from './MainView';
@@ -9,7 +9,7 @@ const Promise = global.Promise;
 
 class Home extends Component {
   componentWillMount() {
-    this.props.onLoad(agent.Articles.all());
+    this.props.getAllArticles();
   }
 
   render() {
@@ -37,12 +37,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  appName: state.article.appName
+  appName: state.common.appName
 })
 
-const mapDispatchToProps = dispatch => ({
-  onLoad: (payload) =>
-    dispatch({ type: 'HOME_PAGE_LOADED', payload }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, actions)(Home)

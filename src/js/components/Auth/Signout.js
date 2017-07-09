@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions'
+import * as auth from '../../actions/auth'
 
 export class Signout extends Component {
   componentWillMount() {
     this.props.signoutUser();
   }
-  
+
   render() {
     return(
       <div className="row">
@@ -18,4 +18,4 @@ export class Signout extends Component {
   }
 }
 
-export default connect(null, actions)(Signout);
+export default connect(null, auth)(Signout);
