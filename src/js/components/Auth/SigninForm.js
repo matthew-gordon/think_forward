@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+
 import * as auth from '../../actions/auth';
 
 const renderField = ({
@@ -20,11 +21,12 @@ const renderField = ({
 );
 
 class SigninForm extends Component {
-  submit(values) {
-    this.props.signinUser(values, () => {
-      this.props.history.push('/dashboard');
-    });
+  componentWillUnmount() {
+    this.props.fetchUser()
+  }
 
+  submit(values) {
+    this.props.signinUser(values, this.props.history);
   }
 
   renderAlert() {
@@ -38,7 +40,6 @@ class SigninForm extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { handleSubmit } = this.props;
 
     return (

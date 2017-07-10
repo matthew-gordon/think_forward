@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+
 import * as auth from '../../actions/auth';
 
 const renderField = ({
@@ -21,11 +22,12 @@ const renderField = ({
 
 
 class SignupForm extends Component {
+  componentWillUnmount() {
+    this.props.fetchUser()
+  }
 
   submit(values) {
-    this.props.signupUser(values, () => {
-      this.props.history.push('/dashboard');
-    });
+    this.props.signupUser(values, this.props.history);
   }
 
   renderAlert() {

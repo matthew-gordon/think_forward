@@ -8,7 +8,6 @@ import {
 
 import './app.component.scss';
 
-import Dashboard from './Dashboard/Dashboard';
 import Header from './Navbar/Header';
 import Home from './Home/';
 import Signin from './Auth/Signin';
@@ -25,7 +24,6 @@ class App extends Component {
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/signout" component={Signout} />
-          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
     );

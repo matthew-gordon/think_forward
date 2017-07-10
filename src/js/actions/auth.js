@@ -8,7 +8,7 @@ import {
 
 const ROOT_URL = 'http://localhost:3000';
 
-export function signupUser(values, callback) {
+export function signupUser(values, history) {
   return (dispatch) => {
     // Submit email/password to the server
     axios.post(`${ROOT_URL}/auth/register`, values)
@@ -19,9 +19,9 @@ export function signupUser(values, callback) {
         //- Save the JWT token to local storage
         localStorage.setItem('token', response.data.token);
         //- Redirect to the route '/dashboard'
-        callback();
+        history.push('/');
       })
-      .catch(() => {
+      .catch((err) => {
         // If request is bad...
         //- Show an error to the user
         dispatch(authError('Bad Signup Info'));
@@ -30,7 +30,8 @@ export function signupUser(values, callback) {
   }
 }
 
-export function signinUser(values, callback) {
+export function signinUser(values, history) {
+  console.log(values);
   return (dispatch) => {
     // Submit email/password to the server
     axios.post(`${ROOT_URL}/auth/login`, values)
@@ -41,9 +42,9 @@ export function signinUser(values, callback) {
         //- Save the JWT token to local storage
         localStorage.setItem('token', response.data.token);
         //- Redirect to the route '/dashboard'
-        callback();
+        history.push('/');
       })
-      .catch(() => {
+      .catch((err) => {
         // If request is bad...
         //- Show an error to the user
         dispatch(authError('Bad Login Info'));
