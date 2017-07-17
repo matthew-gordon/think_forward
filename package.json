@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev" : "webpack-dev-server --inline --hot"
+    "dev": "webpack-dev-server --inline --hot"
   },
   "license": "MIT",
   "devDependencies": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "marked": "^0.3.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",

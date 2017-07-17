@@ -3,7 +3,8 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  FETCH_USER
+  FETCH_USER,
+  LOAD
 } from './types';
 
 const ROOT_URL = 'http://localhost:3000';
@@ -67,12 +68,15 @@ export function authError(error) {
   };
 }
 
+export const load = data => ({ type: LOAD, data })
+
 export function fetchUser() {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/auth/user`, {
       headers:  { authorization: 'Bearer ' + localStorage.getItem('token') }
     })
     .then(response => {
+      console.log(response);
       dispatch({
         type: FETCH_USER,
         payload: response.data.user

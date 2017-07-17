@@ -8,8 +8,10 @@ import {
 
 import './app.component.scss';
 
+import Article from './Article/';
 import Header from './Navbar/Header';
 import Home from './Home/';
+import Settings from './Settings/Settings';
 import Signin from './Auth/Signin';
 import Signup from './Auth/Signup';
 import Signout from './Auth/Signout';
@@ -24,6 +26,8 @@ class App extends Component {
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/signout" component={Signout} />
+          <Route path="/settings" component={Settings} />
+          <Route exact path="/articles/:slug" component={Article} />
         </Switch>
       </div>
     );

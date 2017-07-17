@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import * as auth from '../../actions/auth';
 
+// TODO: Remove fetchUser() from unmount, need to find better means of getting user
+
 const renderField = ({
   input,
   placeholder,
@@ -23,6 +25,7 @@ const renderField = ({
 
 class SignupForm extends Component {
   componentWillUnmount() {
+    // TODO: Remove from componentWillUnmount, figure out better solution
     this.props.fetchUser()
   }
 
