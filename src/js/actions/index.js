@@ -7,7 +7,7 @@ const API_ROOT = 'http://localhost:3000';
 
 export function getAllArticles() {
   return (dispatch) => {
-    axios.get(`${API_ROOT}/articles?limit=10`)
+    axios.get(`${API_ROOT}/articles`)
     .then(payload => {
       dispatch({ type: HOME_PAGE_LOADED, payload: payload });
     })

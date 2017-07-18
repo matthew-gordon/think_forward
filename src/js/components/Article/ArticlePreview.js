@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ArticlePreview = props => {
   const article = props.article;
+  console.log(article, '******* THIS IS THE ARTICLE YOU WANT *******');
 
   return (
     <div className="article-preview">
@@ -37,7 +38,15 @@ const ArticlePreview = props => {
         <p>{article.description}</p>
         <span>Read more...</span>
         <ul className="tag-list">
-          <li>tags</li>
+          {
+            article.tagList.map(tag => {
+              return (
+                <li className="tag-default tag-pill tag-outline" key={tag}>
+                {tag}
+                </li>
+              )
+            })
+          }
         </ul>
       </Link>
     </div>
@@ -45,13 +54,3 @@ const ArticlePreview = props => {
 }
 
 export default ArticlePreview;
-
-// {
-//   article.tagList.map(tag => {
-//     return (
-//       <li className="tag-default tag-pill tag-outline" key={tag}>
-//         {tag}
-//       </li>
-//     )
-//   })
-// }

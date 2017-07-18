@@ -30,6 +30,7 @@ class Article extends Component {
           <div className="container">
 
           <h1>{this.props.article.title}</h1>
+          <h3>{this.props.article.author.username}</h3>
 
           </div>
         </div>
