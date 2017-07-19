@@ -7,7 +7,7 @@ import {
 const API_ROOT = 'http://localhost:3000';
 
 export function getArticle(articleSLUG) {
-  const slug = articleSLUG
+  const slug = articleSLUG;
   console.log(slug);
   return (dispatch) => {
     axios.get(`${API_ROOT}/articles/${slug}`)

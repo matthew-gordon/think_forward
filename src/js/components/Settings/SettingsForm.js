@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { load as loadAccount } from '../../reducers/account'
 
 import * as auth from '../../actions/auth';
 

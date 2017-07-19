@@ -2,17 +2,17 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
 import authReducer from './auth_reducer';
+import accountReducer from './account_reducer.js'
 import articleReducer from './article_reducer';
 import commonReducer from './common_reducer';
 import homeReducer from './home_reducer';
-import account from './account.js'
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  account: accountReducer,
   common: commonReducer,
-  home: homeReducer,
   form: formReducer,
-  account: account,
+  home: homeReducer,
   article: articleReducer
 });
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import marked from 'marked';
 
+import ArticleMeta from './ArticleMeta';
+
 import * as articles from '../../actions/articles';
 
 class Article extends Component {
@@ -21,8 +23,8 @@ class Article extends Component {
     }
 
     // const markup = { _html: marked(this.props.article.body) };
-    // const canModify = this.props.currentUser &&
-      // this.props.currentUser.username === this.props.article.author.username;
+    const canModify = this.props.currentUser &&
+      this.props.currentUser.username === this.props.article.author.username;
     return (
       <div className="article-page">
 
@@ -30,7 +32,9 @@ class Article extends Component {
           <div className="container">
 
           <h1>{this.props.article.title}</h1>
-          <h3>{this.props.article.author.username}</h3>
+          <ArticleMeta
+            article={this.props.article}
+            canModify={canModify} />
 
           </div>
         </div>
@@ -83,7 +87,3 @@ export default connect(mapStateToProps, articles)(Article);
 // errors={this.props.commentErrors}
 // slug={this.props.params.id}
 // currentUser={this.props.currentUser} />
-
-// <ArticleMeta
-// article={this.props.article}
-// canModify={canModify} />

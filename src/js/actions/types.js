@@ -6,6 +6,8 @@ export const AUTH_ERROR = 'auth_error';
 export const HOME_PAGE_LOADED = 'home_page_loaded';
 
 export const LOAD = 'LOAD';
+export const SIGN_OUT = 'SIGN_OUT';
 
 export const ARTICLE_PAGE_LOADED = 'ARTICLE_PAGE_LOADED';
 export const ARTICLE_PAGE_UNLOADED = 'ARTICLE_PAGE_UNLOADED';
+export const ARTICLE_DELETED = 'ARTICLE_DELETED';

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const ArticlePreview = props => {
   const article = props.article;
-  console.log(article, '******* THIS IS THE ARTICLE YOU WANT *******');
 
   return (
     <div className="article-preview">

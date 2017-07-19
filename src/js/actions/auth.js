@@ -4,7 +4,8 @@ import {
   UNAUTH_USER,
   AUTH_ERROR,
   FETCH_USER,
-  LOAD
+  LOAD,
+  SIGN_OUT
 } from './types';
 
 const ROOT_URL = 'http://localhost:3000';
@@ -55,9 +56,12 @@ export function signinUser(values, history) {
 }
 
 export function signoutUser() {
-  localStorage.removeItem('token');
+  return (dispatch) => {
+    localStorage.removeItem('token');
 
-  return { type: UNAUTH_USER }
+    dispatch({ type: SIGN_OUT });
+    dispatch({ type: UNAUTH_USER });
+  }
 }
 
 
