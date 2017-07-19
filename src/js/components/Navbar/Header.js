@@ -15,19 +15,19 @@ class Header extends Component {
     if (this.props.user) {
       return [
         <li className="nav-item" key={1}>
-          <Link to="" className="nav-link">
+          <Link to="/" className="nav-link">
             Home
           </Link>
         </li>,
 
         <li className="nav-item" key={2}>
-          <Link to="editor" className="nav-link">
+          <Link to="/editor" className="nav-link">
             <i className="ion-compose"></i>&nbsp;New Post
           </Link>
         </li>,
 
         <li className="nav-item" key={3}>
-          <Link to="settings" className="nav-link">
+          <Link to="/settings" className="nav-link">
             <i className="ion-gear-a"></i>&nbsp;Settings
           </Link>
         </li>,

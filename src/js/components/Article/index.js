@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import marked from 'marked';
 
 import ArticleMeta from './ArticleMeta';
+import CommentContainer from './CommentContainer';
 
 import * as articles from '../../actions/articles';
 
@@ -69,6 +70,11 @@ class Article extends Component {
 
         </div>
         <div className="row">
+          <CommentContainer
+            comments={this.props.comments || []}
+            errors={this.props.commentErrors}
+            slug={this.props.match.params.slug}
+            currentUser={this.props.currentUser} />
         </div>
       </div>
     );
@@ -81,9 +87,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, articles)(Article);
-
-// <CommentContainer
-// comments={this.props.comments || []}
-// errors={this.props.commentErrors}
-// slug={this.props.params.id}
-// currentUser={this.props.currentUser} />
