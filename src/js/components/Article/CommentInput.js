@@ -22,29 +22,7 @@ const renderTextarea= ({
 );
 
 class CommentInput extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = {
-  //     body: ''
-  //   };
-  //
-  //   this.setBody = ev => {
-  //     this.setState({ body: ev.target.value });
-  //   };
-  //
-  //   this.createComment = ev => {
-  //     ev.preventDefault();
-  //     const body = { body: this.state.body };
-  //     const payload = comments.postNewComment(this.props.slug,
-  //       body, this.props.history);
-  //     this.setState({ body: ''});
-  //     this.props.onSubmit(payload);
-  //   }
-  // }
-
   submit(values) {
-    console.log(values);
     const body = values;
     comments.postNewComment(this.props.slug,
         body, this.props.history);
@@ -78,7 +56,7 @@ class CommentInput extends Component {
 }
 
 const mapStateToProps = state => {
-  return;
+  return {};
 }
 
 CommentInput = reduxForm({

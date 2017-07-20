@@ -10,15 +10,15 @@ export default (state = {}, action) => {
       return {
         ...state,
         commentErrors: action.error ? action.payload.errors : null,
-        comments: action.error ?
-          null :
-          (state.comments || []).concat([action.payload.comment])
+        data: action.payload
       };
     case DELETE_COMMENT:
       const commentId = action.commentId;
+      console.log(commentId);
+      console.log(state);
       return {
         ...state,
-        commments: state.comments.filter(comment => comment.id !== commentId)
+        data: state.data.filter(comment => comment.id !== commentId)
       };
   }
 
