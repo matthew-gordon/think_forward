@@ -2,11 +2,9 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import SigninForm from './SigninForm';
+import SettingsForm from './SettingsForm';
 
-// import TestFrom from './TestFrom';
-
-class Signin extends Component {
+class Settings extends Component {
   render() {
     return (
       <div className="auth-page">
@@ -14,14 +12,9 @@ class Signin extends Component {
           <div className="row">
 
             <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign In</h1>
-              <p className="text-xs-center">
-                <Link to ="/signup">
-                  Need an account?
-                </Link>
-              </p>
+              <h1 className="text-xs-center">Your Settings</h1>
 
-              <SigninForm />
+              <SettingsForm />
             </div>
 
           </div>
@@ -32,4 +25,4 @@ class Signin extends Component {
 }
 
 import { withRouter } from 'react-router-dom';
-export default withRouter(connect()(Signin))
+export default withRouter(connect()(Settings));

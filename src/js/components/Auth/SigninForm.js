@@ -22,6 +22,7 @@ const renderField = ({
 
 class SigninForm extends Component {
   componentWillUnmount() {
+    // TODO: Remove from componentWillUnmount, figure out better solution
     this.props.fetchUser()
   }
 
