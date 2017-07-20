@@ -7,14 +7,14 @@ const ArticlePreview = props => {
   return (
     <div className="article-preview">
       <div className="article-meta">
-        <Link to={`@${article.author.username}`}>
-          <img src={article.author.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'} />
+        <Link to={`/@${article.author.username}`}>
+          <img src={article.author.image} />
         </Link>
 
         <div className="info">
           <Link
             className="author"
-            to={`@${article.author.username}`}>
+            to={`/@${article.author.username}`}>
             {article.author.username}
           </Link>
           <span className="date">
